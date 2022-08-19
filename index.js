@@ -1,5 +1,5 @@
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
 let frames = 0;
 let interval;
 
@@ -11,20 +11,33 @@ class Figure {
         this.heigth = heigth;
     }
     draw() {
-        ctx.beginPath();
-        ctx.rect(this.x, this.y, this.width, this.heigth);
+        ctx.fillStyle = "orange";
+        ctx.fillRect(this.x, this.y, this.width, this.heigth);
         ctx.stroke();
+    }
+    moveLeft() {
+        this.x -= 25;
+    }
+    moveRight() {
+        this.x += 25;
+    }
+    moveDown() {
+        this.y -= 25;
+    }
+    moveUp() {
+        this.y += 25;
     }
 }
 
-const mainSquare = new Figure(300, 300, 50, 50)
+const mainSquare = new Figure(300, 300, 50, 50);
 
-const update = () => {
+function update() {
     frames++;
-    mainSquare.draw()
-    interval = setInterval(frames, 1000 / 60);
+    mainSquare.draw();
 }
 
-window.onload = () => {
-    update();
+function start() {
+    interval = setInterval(update, 1000 / 60);
 }
+
+start();
