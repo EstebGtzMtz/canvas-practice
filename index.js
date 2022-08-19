@@ -32,12 +32,11 @@ class Figure {
             this.x = leftObstacle.width;
         } else if (this.x >= canvas.width - rightObstacle.width) {
             this.x = (canvas.width - rightObstacle.width) - this.width;
-        } else if (this.y >= canvas.height) {
-            // this.y = (canvas.height - bottomObstacle.heigth) - this.heigth;
-        } else if (this.y <= topObstacle.heigth) {
-            this.y = topObstacle.heigth;
+        } else if (this.y >= (canvas.height - bottomObstacle.height) - this.height) {
+            this.y = (canvas.height - bottomObstacle.height) - this.height
+        } else if (this.y <= topObstacle.height) {
+            this.y = topObstacle.height;
         }
-        console.log(canvas.height, bottomObstacle.heigth)
     }
 }
 
